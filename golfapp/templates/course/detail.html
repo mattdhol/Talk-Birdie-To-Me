@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="mainhead">
+    <h1> About Your Course</h1>
+   </div>
+
+
+
+
+
+    <div class=cardhead>
+
+         <h2> {{course.course_name}}</h2>
+          <h4> Par: {{ course.par}} </h4>
+          <h4> Things to Remember: {{ course.things_to_remember}} </h4>
+          <h4> Created: {{ course.created}} </h4>
+</div>
+
+<div class="col s6">
+
+    <form action="{% url 'add_score' course.id %}" method="post" id="formmain">
+        {% csrf_token %}
+        <table class="scoreform">
+
+        {{ score_form }}
+        
+    </table>
+    <br>
+        <input type="submit" class="button is-success is-outlined large" value="Add Score">
+      </form>
+<div class="table_wrapper">
+    <table id="formmain" id="table is-bordered">
+      <thead>
+        <tr>
+            <th>Date</th>
+            <th>Score</th>
+            <!-- <th>Eagles</th> -->
+            <th>Birdies</th>
+            <th>Pars</th>
+            <!-- <th>Bogeys</th>
+            <th>Blow Up Holes</th> -->
+            <th>Fairways Hit</th>
+            <th>Greens Hit</th>
+            <th>Memorable Moment</th>
+            <th>Created</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for score in course.score_set.all %}
+          <tr>
+            <td>{{score.date}}</td>
+            <td>{{score.total_score}}</td>
+            <!-- <td>{{score.number_of_eagles}}</td> -->
+            <td>{{score.number_of_birdies}}</td>
+            <td>{{score.number_of_pars}}</td>
+            <!-- <td>{{score.number_of_bogeys}}</td>
+            <td>{{score.number_of_blow_up_holes}}</td> -->
+            <td>{{score.number_of_fairways_hit}}</td>
+            <td>{{score.number_of_greens_hit}}</td>
+            <td>{{score.memorable_moment}}</td>
+            <td>{{score.created}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  </div>
+</div>
+
+
+
+<script>
+    var dateEl = document.getElementById('id_date');
+    M.Datepicker.init(dateEl, {
+      format: 'yyyy-mm-dd',
+      defaultDate: new Date(),
+      setDefaultDate: true,
+      autoClose: true
+    });
+  
+    var selectEl = document.getElementById('id_drink');
+    M.FormSelect.init(selectEl);
+  
+  </script>  
+
+{% endblock %}

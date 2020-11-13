@@ -1,0 +1,99 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Talk Birdie to Me</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+<body>
+  <nav class="navbar is-spaced" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <!-- <a class="navbar-item" href="https://bulma.io"></a> -->
+        <!-- <img src="/plant_app/static/css/public/image.png" width="112" height="28"> -->
+      </a>
+  
+      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+  
+    <div id="navbarBasicExample" class="navbar-menu">
+      <div class="navbar-start">
+        <a class="navbar-item" href="/about">
+          About
+        </a>  
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            Scores Home
+          </a>
+  
+          <div class="navbar-dropdown">
+            
+            <a class="navbar-item" href="/scores">
+              See All My Scores
+            </a>
+            <a class="navbar-item" href="{% url 'score_create' %}">
+              Add a New Total Score!
+            </a>
+            <hr class="navbar-divider">
+            <a class="navbar-item">
+              Add a Score By Hole
+            </a>
+          </div>
+        </div>
+
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              Course Home
+            </a>
+    
+            <div class="navbar-dropdown">
+              
+              <a class="navbar-item" href="/course">
+                See All My Courses
+              </a>
+              <a class="navbar-item" href="{% url 'course_create' %}">
+                Add a New Course! 
+              </a>
+            </div>
+            </div>
+
+        </div>
+      </div>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            <a class="button is-primary">
+              <strong>Sign up</strong>
+            </a>
+            <a class="button is-light">
+              Log in
+            </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+    {% block content %}
+    {% endblock %}
+  </main>
+
+  <br>
+  <br>
+
+  <footer class="page-footer">
+    <div class="right">All Rights Reserved, &copy; 2019 Talk Birdie to Me &nbsp;</div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,123 @@
+/* body {
+    background-color: blue;
+  } */
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.cardmain{
+  max-width: 1150px;
+  margin-left: auto;
+  margin-right: auto;
+  position: center;
+}
+.mainhead{
+  text-align: center;
+  font-size: 30px;
+  color: brown;
+  size: 30px;
+  padding: 40px;
+  background-color: green;
+  background-image: url(https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80);
+}
+
+.cardhead{
+  text-align: center;
+  font-size: 20px;
+  color: firebrick;
+  padding: 10px;
+}
+
+h1 {
+	font-size: calc(13.8em + 4.6vw);
+	font-weight: 700;
+	letter-spacing: .01em;
+	padding: 10rem 0 0 4.5rem;
+	text-shadow: .022em .022em .022em #111;
+  color: #fff;
+}
+h2 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 80px;
+  margin-bottom: 30px;
+}
+
+h3 {
+  text-align: center;
+  font-size: 35px;
+}
+
+h4 {
+  text-align: center;
+}
+.scoreform{
+  text-align: center;
+  font-size: 10px;
+  padding: 20px;
+  max-width: 1150px;
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+  margin-top: 20px;
+  box-shadow: 5px 10px;
+  box-shadow: green;
+  vertical-align: middle;
+}
+#formmain{
+  text-align: center;
+  font-size: 20px;
+  color: green;
+  vertical-align: middle;
+  font-weight: 400;
+  padding: 10px;
+}
+.btn{
+  position: relative;
+  size: 50px;
+  margin-top: 20px;
+}
+
+.page-footer{
+  background-color: green;
+}
+#id_date, #total_score, #id_number_of_eagles, #id_number_of_birdies, #id_number_of_pars, #id_number_of_bogeys, #id_number_of_blow_up_holes, 
+#id_number_of_fairways_hit, #id_number_of_greens_hit, #id_number_of_memorable_moment{
+  text-align: center;
+  font-size: 25px;
+}
+
+label[for="id_date"],label[for="id_total_score"],label[for="id_number_of_eagles"],label[for="id_number_of_birdies"],label[for="id_number_of_pars"],
+label[for="id_number_of_bogeys"],label[for="id_number_of_blow_up_holes"],label[for="id_number_of_fairways_hit"],
+label[for="id_number_of_greens_hit"],label[for="id_memorable_moment"]{
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+.button is-success is-outlined large{
+  padding: 10px;
+}
+
+.center{
+  padding: 20px;
+}
+#formain{
+  max-width: 1150px;
+  background-color: green;
+  position: relative;
+  border: green;
+  border-style: solid;
+}
+
+.table_wrapper{
+  overflow-x: auto;
+  max-width: 1150px;
+  display: flex;
+  justify-content: center;
+  border: green;
+  margin: auto;
+}

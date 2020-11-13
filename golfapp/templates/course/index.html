@@ -1,0 +1,50 @@
+
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="mainhead">
+    <h1> Your Golf Courses</h1>
+   </div>
+
+{% for course in course %}
+
+<a href="/course/{{ course.id }}">
+   <div class="card">
+       <div class="card-content">
+       <div class=cardhead>
+   <h3>  Courses: {{ course.course_name}} </h3>
+       </div>
+       <h4> Par: {{ course.par }} </h4>
+       <h4> Things to Remember: {{ course.things_to_remember}} </h4>
+       <h4> Created: {{ course.created }} </h4>
+    </a>
+</div>
+
+<div class="col s6">
+    <table class="striped">
+      <thead>
+        <tr><th>Date</th><th>Score</th></tr>
+      </thead>
+      <tbody>
+        {% for score in course.score_set.all %}
+          <tr>
+            <td>{{score.date}}</td>
+            <td>{{score.total_score}}</td>
+            <!-- <td>{{score.number_of_eagles}}</td> -->
+            <td>{{score.number_of_birdies}}</td>
+            <td>{{score.number_of_pars}}</td>
+            <!-- <td>{{score.total_number_of_bogeys}}</td>
+            <td>{{score.number_of_blow_up_holes}}</td> -->
+            <td>{{score.number_of_fairways_hit}}</td>
+            <td>{{score.number_of_greens_hit}}</td>
+            <td>{{score.memorable_moment}}</td>
+            <!-- <td>{{score.created}}</td> -->
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endfor %}
+{% endblock %}
