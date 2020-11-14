@@ -12,12 +12,33 @@ class CourseCreate(CreateView):
     model = Course
     fields = "__all__"
 
+class CourseDelete(DeleteView):
+  model = Course
+  success_url = "/course/"
+
+class CourseUpdate(UpdateView):
+  model = Course
+  fields = "__all__"
+
+
 class ScoreCreate(CreateView):
   model = Score
   fields = "__all__"
 
+class ScoreDelete(DeleteView):
+  model = Score
+  success_url = "/scores/"
+
+class ScoreUpdate(UpdateView):
+  model = Score
+  fields = "__all__"
+
+
 def home(request):
     return render(request, "about.html")
+
+def analytics(request):
+  return render(request, "analytics.html")
     
 def score_index(request):
     score = Score.objects.all()

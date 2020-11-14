@@ -7,6 +7,7 @@
   margin: 0;
   padding: 0;
   font-family: 'Montserrat', sans-serif;
+  
 }
 
 .cardmain{
@@ -33,17 +34,19 @@
 }
 
 h1 {
-	font-size: calc(13.8em + 4.6vw);
+	size: 35px;
 	font-weight: 700;
 	letter-spacing: .01em;
 	padding: 10rem 0 0 4.5rem;
 	text-shadow: .022em .022em .022em #111;
   color: #fff;
+  font-family: 'Dancing Script', cursive;
 }
 h2 {
-  font-family: 'Dancing Script', cursive;
-  font-size: 80px;
+	font-family: 'Dancing Script', cursive;
   margin-bottom: 30px;
+  text-shadow: .022em .022em .022em #111;
+  font-style: bold;
 }
 
 h3 {
@@ -121,3 +124,34 @@ label[for="id_number_of_greens_hit"],label[for="id_memorable_moment"]{
   border: green;
   margin: auto;
 }
+
+.cardact{
+  margin: auto;
+  padding: 10px;
+  position: relative;
+}
+
+h5{
+    font-family: "Arial Black", sans-serif;
+    font-size: 44px;
+    letter-spacing: -1px;
+    background-color: black;
+    color: white;
+    margin: auto;
+    text-align: center;
+    padding: 10px; 
+}
+
+.hero-body{
+  padding: 0%;
+  margin: 0%;
+}
+.container{
+  padding: 10px;
+}
+
+.intropage{
+  background-image: url(https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80);
+  height: 185%;
+}
+

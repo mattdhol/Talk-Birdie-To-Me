@@ -21,9 +21,21 @@
 </div>
 
 <div class="col s6">
-    <table class="striped">
+  <div class="table_wrapper">
+    <table id="formmain" class="striped">
       <thead>
-        <tr><th>Date</th><th>Score</th></tr>
+        <tr>
+          <th>Date</th>
+          <th>Score</th>
+
+        <th>Birdies</th>
+
+      <th>Pars</th>
+      <th>Fairways Hit</th>
+
+      <th>Greens Hit</th>
+      <th>Memorable Moment</th>
+    </tr>
       </thead>
       <tbody>
         {% for score in course.score_set.all %}
@@ -43,6 +55,7 @@
         {% endfor %}
       </tbody>
     </table>
+  </div>
   </div>
 </div>
 

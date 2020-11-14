@@ -7,21 +7,30 @@
 </div>
 {% for score in score %}
 
+<div class=cardhead>
 <div class="card">
-    <div class="card-content">
-    <div class=cardhead>
+<div class="card-content">
 <h3> Total Score: {{ score.total_score}} </h3>
-    </div>
-<h4> Number of Eagles: {{ score.number_of_eagles}} </h4>
+</div>
+<h4> Date: {{ score.date}} </h4>
+<!-- <h4> Number of Eagles: {{ score.number_of_eagles}} </h4> -->
 <h4> Number of Birdies: {{ score.number_of_birdies}} </h4>
 <h4> Number of Pars: {{ score.number_of_pars}} </h4>
-<h4> Number of bogeys: {{ score.number_of_bogeys}} </h4>
-<h4> Number of Blow Up Holes: {{ score.number_of_blow_up_holes}} </h4>
+<!-- <h4> Number of bogeys: {{ score.number_of_bogeys}} </h4>
+<h4> Number of Blow Up Holes: {{ score.number_of_blow_up_holes}} </h4> -->
 <h4> Number of Fairways Hit: {{ score.number_of_fairways_hit}} </h4>
 <h4> Number of Blow Greens Hit: {{ score.number_of_greens_hit}} </h4>
 <h4> What to Remember: {{ score.memorable_moment}} </h4>
-<h4> Date Scorecard Was Entered: {{ score.created }} </h4>
-    </div>
+<!-- <h4> Date Scorecard Was Entered: {{ score.created }} </h4> -->
+<div class="cardact">
+<div class="button is-success is-outlined large"> 
+<a href="{% url 'score_update' score.id %} ">Edit</a>
+</div>
+<div class="button is-danger is-outlined large">
+<a href="{% url 'score_delete' score.id %}">Delete</a>
+</div>
+</div>
+</div>
 </div>
 {% endfor %}
 {% endblock %}

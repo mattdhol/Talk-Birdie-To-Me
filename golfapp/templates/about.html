@@ -1,12 +1,87 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>About the Golf Collector</h1>
-<hr />
-<p>See Your Scores with the Golf Collector!
-    https://bulma.io/documentation/layout/
+<div class="intropage">
+<div class="container">
+<h5>Talk Birdie To Me</h5>
+<h5 class="subtitle">
 
-</p>
+</h5>
+<div class="tile is-ancestor">
+<div class="tile is-vertical is-8">
+<div class="tile">
 
+<div class="tile is-parent is-vertical">
+<article class="tile is-child notification is-primary">
+<p class="title">See All Your Scores</p>
+<a href="/scores/">
+<figure class="image is-4by3">
+<img src="/static/css/public/scorecard.jpg">
+</a>
+</figure>
+</article>
+
+<article class="tile is-child notification is-warning ">
+    <a href="/course/">
+    <p class="title">See All Your Courses</p>
+<p class="subtitle">Which Are You Taking On?</p></a>
+
+</figure>
+    </a>
+</article>
+</div>
+
+
+
+<div class="tile is-parent">
+<article class="tile is-child notification is-info">
+    <p class="title"> Add a Score</p>
+    <p class="subtitle">Bottom tile</p>
+    <a href="/scores/create">
+        <figure class="image is-4by3">
+        <img src="/static/css/public/filledcard.jpg">
+        </a>
+</article>
+</div>
+</div>
+
+<div class="tile is-parent">
+<article class="tile is-child notification is-danger">
+    <p class="title">Add A New Course</p>
+<p class="subtitle">...to conquer</p>
+<div class="content">
+
+
+</div>
+</article>
+</div>
+</div>
+<div class="tile is-parent">
+<article class="tile is-child notification is-success">
+<div class="content">
+<p class="title">Analytics</p>
+<p class="subtitle">You're better than your friends and can prove it statistically:</p>
+<div class="content">
+<!-- Content -->
+</div>
+</div>
+</article>
+</div>
+</div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
 
 {% endblock %}
+

@@ -5,16 +5,22 @@
     <h1> About Your Course</h1>
    </div>
 
+<div class=cardhead>
+
+  <h2> {{course.course_name}}</h2>
+  <h4> Par: {{ course.par}} </h4>
+  <h4> Things to Remember: {{ course.things_to_remember}} </h4>
+  <h4> Created: {{ course.created}} </h4>
 
 
-
-
-    <div class=cardhead>
-
-         <h2> {{course.course_name}}</h2>
-          <h4> Par: {{ course.par}} </h4>
-          <h4> Things to Remember: {{ course.things_to_remember}} </h4>
-          <h4> Created: {{ course.created}} </h4>
+  <div class="cardact">
+    <div class="button is-success is-outlined large"> 
+      <a href="{% url 'course_update' course.id %} ">Edit</a>
+    </div>
+    <div class="button is-danger is-outlined large">
+      <a href="{% url 'course_delete' course.id %}">Delete</a>
+    </div>
+  </div>
 </div>
 
 <div class="col s6">

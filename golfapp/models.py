@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from datetime import date
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -9,6 +10,7 @@ class Course(models.Model):
     par = models.IntegerField()
     things_to_remember = models.TextField(null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.course_name
