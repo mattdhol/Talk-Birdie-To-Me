@@ -155,3 +155,6 @@ h5{
   height: 185%;
 }
 
+.navbar-end{
+  text-align: right;
+}

@@ -10,7 +10,7 @@ class Course(models.Model):
     par = models.IntegerField()
     things_to_remember = models.TextField(null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, default='0', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.course_name

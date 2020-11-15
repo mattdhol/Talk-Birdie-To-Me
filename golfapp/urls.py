@@ -5,6 +5,8 @@ from .models import Course, Score
 
 urlpatterns = [
   path('', views.home, name='home'),
+  path('accounts/signup/', views.signup, name='signup'),
+
   path('analytics/', views.analytics, name='analytics'),
 
   path('course/', views.course_index, name='course_index'),
@@ -19,8 +21,6 @@ urlpatterns = [
   path('scores/create', views.ScoreCreate.as_view(), name='score_create'),
   path('scores/<int:pk>/delete/', views.ScoreDelete.as_view(), name='score_delete'),
   path('scores/<int:pk>/update/', views.ScoreUpdate.as_view(), name='score_update'),
-
-
 
 ]
 

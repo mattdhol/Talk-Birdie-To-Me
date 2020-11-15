@@ -14,95 +14,149 @@
 </head>
 <div class="">
 <body>
-  <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-      <!-- <a class="navbar-item" href="https://bulma.io"></a> -->
-        <!-- <img src="/plant_app/static/css/public/image.png" width="112" height="28"> -->
-      </a>
-  
-      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-      </a>
-    </div>
-  
-    <div id="navbarBasicExample" class="navbar-menu">
-      <div class="navbar-start">
-        <a class="navbar-item" href="/">
-          Home
-        </a>  
+<nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
+<div class="navbar-brand">
+<!-- <a class="navbar-item" href="https://bulma.io"></a> -->
+<!-- <img src="/plant_app/static/css/public/image.png" width="112" height="28"> -->
+</a>
 
-        <div class="navbar-item has-dropdown is-hoverable">
-          <a class="navbar-link">
-            Scores Home
-          </a>
-  
-          <div class="navbar-dropdown">
-            
-            <a class="navbar-item" href="/scores">
-              See All My Scores
-            </a>
-            <a class="navbar-item" href="{% url 'score_create' %}">
-              Add a New Total Score!
-            </a>
-            <hr class="navbar-divider">
-            <a class="navbar-item">
-              Add a Score By Hole
-            </a>
-          </div>
-        </div>
+<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+<span aria-hidden="true"></span>
+<span aria-hidden="true"></span>
+<span aria-hidden="true"></span>
+</a>
+</div>
+<div>
+  Space
+</div>
+<div id="navbarBasicExample" class="navbar-menu">
+<div class="navbar-start">
+<a class="navbar-item" href="/">
+Home
+</a>  
+</div>
+{% if user.is_authenticated %}
 
-          <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link">
-              Course Home
-            </a>
-    
-            <div class="navbar-dropdown">
-              
-              <a class="navbar-item" href="/course">
-                See All My Courses
-              </a>
-              <a class="navbar-item" href="{% url 'course_create' %}">
-                Add a New Course! 
-              </a>
-            </div>
-            </div>
 
-            <div id="navbarBasicExample" class="navbar-menu">
-              <div class="navbar-start">
-                <a class="navbar-item" href="/analytics">
-                  Analytics 
-                </a>  
-              </div>
-        </div>
-      </div>
+<div class="navbar-start has dropdown">
+<a class="navbar-item">
+<!-- Scores Home -->
+</a>  
+
+<div class="navbar-item has-dropdown is-hoverable">
+<a class="navbar-link">
+Scores Home
+</a>
+
+
+<div class="navbar-dropdown">
+
+<a class="navbar-item" href="/scores">
+See All My Scores
+</a>
+<a class="navbar-item" href="{% url 'score_create' %}">
+Add a New Total Score!
+</a>
+<hr class="navbar-divider">
+<a class="navbar-item">
+Add a Score By Hole
+</a>
+</div>
+</div>
+
+<div class="navbar-item has-dropdown is-hoverable">
+<a class="navbar-link">
+Course Home
+</a>
+
+<div class="navbar-dropdown">
+
+<a class="navbar-item" href="/course">
+  See All My Courses
+</a>
+<a class="navbar-item" href="{% url 'course_create' %}">
+  Add a New Course! 
+</a>
+</div>
+</div>
+</div>
+
+<div id="navbarBasicExample" class="navbar-menu">
+<div class="navbar-start">
+  <a class="navbar-item" href="/analytics">
+    Analytics 
+  </a>  
+</div>
+</div>
+
+
+<!-- <div id="navbarBasicExample" class="navbar-menu">
+  <div class="navbar-end">
+    <a class="navbar-item" href="/">
+      <h1> Hey, Gunslinger {{user}}..</h1> 
+    </a>  
+  </div>
+  </div> -->
+
+<div id="navbarBasicExample" class="navbar-menu">
+  <div class="navbar-end">
+    <a class="navbar-item" href="/">
+      <h1> {{user}}...&nbsp; &nbsp;</h1> 
       
-      <div class="navbar-end">
+      <h1>Talk Birdie To Me</h1> 
+    </a>  
+  </div>
+  </div>
 
-      </div>
 
-        <div class="navbar-item">
-          <div class="buttons">
-            <h1>Talk Birdie To Me</h1>
-            &nbsp;
-            &nbsp;
-            &nbsp;
-            <a class="button is-primary">
-            
-              <strong>Sign up</strong>
-            </a>
-            <a class="button is-light">
-              Log in
-            </a>
-        </div>
-      </div>
-    
-  </nav>
 
-    {% block content %}
-    {% endblock %}
-  </main>
+<div id="navbarBasicExample" class="navbar-end">
+  <div class="navbar-end">
+    <a class="navbar-item" href="{% url 'logout' %}" >
+      Log Out 
+    </a>  
+  </div>
+  </div>
+</a>
+<div>
+  Space
+</div>
+
+{% else %}
+
+
+<div class="navbar-end">
+<div class="navbar-item">
+<div class="buttons">
+
+
+  <h1>Talk Birdie To Me</h1>
+&nbsp;
+&nbsp;
+&nbsp;
+
+</a>
+<a href="{% url 'signup' %}" class="button is-primary"> 
+  Sign Up
+</a>
+
+</a>
+<a href="{% url 'login' %}" class="button is-warning is-hovered"> 
+Log in
+</a>
+
+
+</div>
+</div>
+</div>
+
+{% endif %}
+
+</nav>
+
+{% block content %}
+{% endblock %}
+</main>
 
   <br>
   <br>
