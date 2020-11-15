@@ -2,13 +2,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="mainhead">
   <h1>Delete Course</h1>
-
+</div>
+<br>
   <h4>Are you sure you want to delete <span class="teal-text">{{ object.name }}</span>?</h4>
 
-  <form action="" method="POST">
+  <form action="" method="POST" id="formmain">
     {% csrf_token %}
-    <input type="submit" value="Yes - Delete!" class="btn">
+    <input type="submit" value="Yes - Delete!" class="button is-danger is-hovered">
     <a href="{% url 'detail' course.id %}">Cancel</a>
   </form>
 {% endblock %}

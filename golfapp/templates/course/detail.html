@@ -6,8 +6,12 @@
    </div>
 
 <div class=cardhead>
+  <div class="card">
+  <div class="card-content">
+  <h3 style="color: green;"> {{course.course_name}}</h3>
+</div>
+</div>
 
-  <h2> {{course.course_name}}</h2>
   <h4> Par: {{ course.par}} </h4>
   <h4> Things to Remember: {{ course.things_to_remember}} </h4>
   <h4> Created: {{ course.created}} </h4>
@@ -28,7 +32,6 @@
     <form action="{% url 'add_score' course.id %}" method="post" id="formmain">
         {% csrf_token %}
         <table class="scoreform">
-
         {{ score_form }}
         
     </table>

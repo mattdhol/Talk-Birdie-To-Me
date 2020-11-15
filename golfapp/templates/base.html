@@ -12,10 +12,11 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
-<div class="">
 <body>
+
 <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
-<div class="navbar-brand">
+<div style="font-family: 'Dancing Script', cursive;">
+
 <!-- <a class="navbar-item" href="https://bulma.io"></a> -->
 <!-- <img src="/plant_app/static/css/public/image.png" width="112" height="28"> -->
 </a>
@@ -27,16 +28,17 @@
 </a>
 </div>
 <div>
+
   Space
 </div>
 <div id="navbarBasicExample" class="navbar-menu">
 <div class="navbar-start">
 <a class="navbar-item" href="/">
-Home
+<h1>Home</h1>
 </a>  
 </div>
-{% if user.is_authenticated %}
 
+{% if user.is_authenticated %}
 
 <div class="navbar-start has dropdown">
 <a class="navbar-item">
@@ -45,37 +47,37 @@ Home
 
 <div class="navbar-item has-dropdown is-hoverable">
 <a class="navbar-link">
-Scores Home
+  <h1>Scores Home</h1>
 </a>
 
 
 <div class="navbar-dropdown">
 
 <a class="navbar-item" href="/scores">
-See All My Scores
+  <h1>See All My Scores</h1>
 </a>
 <a class="navbar-item" href="{% url 'score_create' %}">
-Add a New Total Score!
+  <h1>Add a New Total Score!</h1>
 </a>
 <hr class="navbar-divider">
 <a class="navbar-item">
-Add a Score By Hole
-</a>
+  <h1>Add a Score By Hole</h1>
+</a><
 </div>
 </div>
 
 <div class="navbar-item has-dropdown is-hoverable">
 <a class="navbar-link">
-Course Home
+  <h1>Course Home</h1>
 </a>
 
 <div class="navbar-dropdown">
 
 <a class="navbar-item" href="/course">
-  See All My Courses
+  <h1>See All My Courses</h1>
 </a>
 <a class="navbar-item" href="{% url 'course_create' %}">
-  Add a New Course! 
+  <h1>Add a New Course! </h1>
 </a>
 </div>
 </div>
@@ -84,7 +86,7 @@ Course Home
 <div id="navbarBasicExample" class="navbar-menu">
 <div class="navbar-start">
   <a class="navbar-item" href="/analytics">
-    Analytics 
+    <h1>Analytics </h1>
   </a>  
 </div>
 </div>
@@ -101,13 +103,14 @@ Course Home
 <div id="navbarBasicExample" class="navbar-menu">
   <div class="navbar-end">
     <a class="navbar-item" href="/">
-      <h1> {{user}}...&nbsp; &nbsp;</h1> 
+      <h3> {{user}}...&nbsp; &nbsp;</h3> 
       
-      <h1>Talk Birdie To Me</h1> 
+      <div style="font-size:200%;",>
+        <h1 style="color: green;">Talk Birdie To Me</h1> 
+      </div>
     </a>  
   </div>
   </div>
-
 
 
 <div id="navbarBasicExample" class="navbar-end">
@@ -124,24 +127,24 @@ Course Home
 
 {% else %}
 
-
 <div class="navbar-end">
 <div class="navbar-item">
 <div class="buttons">
 
-
-  <h1>Talk Birdie To Me</h1>
+<div style="font-size:200%;",>
+  <h1 style="color: green;">Talk Birdie To Me</h1> 
+</div>
 &nbsp;
 &nbsp;
 &nbsp;
 
 </a>
-<a href="{% url 'signup' %}" class="button is-primary"> 
+<a href="{% url 'signup' %}" class="button is-primary is-outlined large"> 
   Sign Up
 </a>
 
 </a>
-<a href="{% url 'login' %}" class="button is-warning is-hovered"> 
+<a href="{% url 'login' %}" class="button is-warning is-outlined large"> 
 Log in
 </a>
 
@@ -149,7 +152,6 @@ Log in
 </div>
 </div>
 </div>
-
 {% endif %}
 
 </nav>

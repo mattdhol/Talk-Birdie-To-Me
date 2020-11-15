@@ -6,8 +6,6 @@
 *{
   margin: 0;
   padding: 0;
-  font-family: 'Montserrat', sans-serif;
-  
 }
 
 .cardmain{
@@ -15,6 +13,7 @@
   margin-left: auto;
   margin-right: auto;
   position: center;
+  font-family: 'Montserrat', sans-serif;
 }
 .mainhead{
   text-align: center;
@@ -29,8 +28,9 @@
 .cardhead{
   text-align: center;
   font-size: 20px;
-  color: firebrick;
+  color: green;
   padding: 10px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 h1 {
@@ -43,7 +43,7 @@ h1 {
   font-family: 'Dancing Script', cursive;
 }
 h2 {
-	font-family: 'Dancing Script', cursive;
+  font-family: 'Dancing Script', cursive;
   margin-bottom: 30px;
   text-shadow: .022em .022em .022em #111;
   font-style: bold;
@@ -52,10 +52,13 @@ h2 {
 h3 {
   text-align: center;
   font-size: 35px;
+  font-family: 'Montserrat', sans-serif;
+  color: green;
 }
 
 h4 {
   text-align: center;
+  font-family: 'Montserrat', sans-serif;
 }
 .scoreform{
   text-align: center;
@@ -88,17 +91,23 @@ h4 {
 .page-footer{
   background-color: green;
 }
-#id_date, #total_score, #id_number_of_eagles, #id_number_of_birdies, #id_number_of_pars, #id_number_of_bogeys, #id_number_of_blow_up_holes, 
-#id_number_of_fairways_hit, #id_number_of_greens_hit, #id_number_of_memorable_moment{
+#id_date, #total_score, #id_number_of_eagles, #id_number_of_birdies, #id_number_of_pars, #id_number_of_bogeys, #id_number_of_blow_up_holes, #id_total_score, 
+#id_number_of_fairways_hit, #id_number_of_greens_hit, #id_number_of_memorable_moment, #id_username, #id_password1, #id_password2, #id_password, #id_course_name,
+#id_par, #id_things_to_remember, #id_things_to_remember
+{ 
   text-align: center;
   font-size: 25px;
+  font-family: 'Montserrat', sans-serif;
 }
 
 label[for="id_date"],label[for="id_total_score"],label[for="id_number_of_eagles"],label[for="id_number_of_birdies"],label[for="id_number_of_pars"],
 label[for="id_number_of_bogeys"],label[for="id_number_of_blow_up_holes"],label[for="id_number_of_fairways_hit"],
-label[for="id_number_of_greens_hit"],label[for="id_memorable_moment"]{
+label[for="id_number_of_greens_hit"],label[for="id_memorable_moment"], label[for="id_username"], label[for="id_password1"], label[for="id_password2"], 
+label[for="id_password"],label[for="id_course_name"],label[for="id_par"], label[for="id_things_to_remember"]
+{
   font-size: 20px;
   vertical-align: middle;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .button is-success is-outlined large{
@@ -114,6 +123,7 @@ label[for="id_number_of_greens_hit"],label[for="id_memorable_moment"]{
   position: relative;
   border: green;
   border-style: solid;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .table_wrapper{
@@ -129,13 +139,13 @@ label[for="id_number_of_greens_hit"],label[for="id_memorable_moment"]{
   margin: auto;
   padding: 10px;
   position: relative;
+  font-family: 'Montserrat', sans-serif;
 }
 
 h5{
     font-family: "Arial Black", sans-serif;
-    font-size: 44px;
     letter-spacing: -1px;
-    background-color: black;
+    background-color: purple;
     color: white;
     margin: auto;
     text-align: center;
@@ -157,4 +167,18 @@ h5{
 
 .navbar-end{
   text-align: right;
+  color: green;
+}
+
+.navbar-item{
+  color: green;
+}
+.card{
+  font-family: 'Montserrat', sans-serif;
+}
+.button is-success is-outlined large{
+  font-family: 'Montserrat', sans-serif;
+}
+#signup, #login{
+  margin-top: 20px;
 }

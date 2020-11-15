@@ -9,15 +9,16 @@
 {% for course in course %}
 
 <a href="/course/{{ course.id }}">
+  <div class=cardhead>
    <div class="card">
        <div class="card-content">
-       <div class=cardhead>
-   <h3>  Courses: {{ course.course_name}} </h3>
+   <h3>  Course: {{ course.course_name}} </h3>
        </div>
        <h4> Par: {{ course.par }} </h4>
        <h4> Things to Remember: {{ course.things_to_remember}} </h4>
        <h4> Created: {{ course.created }} </h4>
     </a>
+</div>
 </div>
 
 <div class="col s6">
