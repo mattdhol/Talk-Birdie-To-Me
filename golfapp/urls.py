@@ -1,13 +1,15 @@
 from django.urls import path
 from . import views
-from .models import Course, Score
+from .models import Course, Score  
+from django.views.generic import  TemplateView
+from golfapp.views import ScoreChart
 
 
 urlpatterns = [
   path('', views.home, name='home'),
   path('accounts/signup/', views.signup, name='signup'),
 
-  path('analytics/', views.analytics, name='analytics'),
+  path('analytics/', ScoreChart.as_view(), name='analytics'),
 
   path('course/', views.course_index, name='course_index'),
   path('course/create', views.CourseCreate.as_view(), name='course_create'),
@@ -21,6 +23,9 @@ urlpatterns = [
   path('scores/create', views.ScoreCreate.as_view(), name='score_create'),
   path('scores/<int:pk>/delete/', views.ScoreDelete.as_view(), name='score_delete'),
   path('scores/<int:pk>/update/', views.ScoreUpdate.as_view(), name='score_update'),
+
+
+
 
 ]
 

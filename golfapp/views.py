@@ -10,13 +10,23 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+from django.views.generic import  TemplateView
+from django.views.generic import View
 
 
 # Create your views here.
 
+class ScoreChart(TemplateView):
+  template_name = 'analytics/chart.html'
+  def get_context_data(self, **kwargs):
+    context = super().get_context_data(**kwargs)
+    context["qs"] = Score.objects.all()
+    return context
+
+
 class CourseCreate(LoginRequiredMixin, CreateView):
     model = Course
-    fields = "__all__"
+    fields = ['course_name', 'par', 'things_to_remember']
 
     def form_valid(self, form):
           # Assign the logged in user (self.request.user)
@@ -30,20 +40,18 @@ class CourseDelete(LoginRequiredMixin, DeleteView):
 
 class CourseUpdate(LoginRequiredMixin, UpdateView):
   model = Course
-  fields = "__all__"
+  fields = ['course_name', 'par', 'things_to_remember']
 
 
 class ScoreCreate(LoginRequiredMixin, CreateView):
   model = Score
-  fields = "__all__"
+  fields = ['date', 'total_score', 'number_of_birdies', 'number_of_pars', 'number_of_fairways_hit', 'number_of_greens_hit', 'memorable_moment']
 
   def form_valid(self, form):
   # Assign the logged in user (self.request.user)
     form.instance.user = self.request.user  # form.instance is the cat
   # Let the CreateView do its job as usual
     return super().form_valid(form)
-
-
 
 
 class ScoreDelete(LoginRequiredMixin, DeleteView):
@@ -61,15 +69,17 @@ def home(request):
 def analytics(request):
   return render(request, "analytics.html")
 
+
 @login_required
 def score_index(request):
-    score = Score.objects.all()
+    score = Score.objects.filter(user=request.user)
+    course = Course.objects.filter(user=request.user)
     # score = Score.objects.filter(user=request.user)
-    return render(request, 'score/index.html', {'score': score})
+    return render(request, 'score/index.html', {'score': score, 'course': course})
 
 @login_required
 def course_index(request):
-    course = Course.objects.filter(user=request.user)
+    course = Course.objects.filter(user=request.user) 
     return render(request, 'course/index.html', {'course': course})
 
 @login_required

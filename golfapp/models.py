@@ -31,6 +31,7 @@ class Score(models.Model):
     memorable_moment = models.TextField(null=True, blank=True)
     created = models.DateTimeField(auto_now_add=True)
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, default='1', on_delete=models.CASCADE)
     
     def __int__(self):
         return self.total_score
