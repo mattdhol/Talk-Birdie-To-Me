@@ -1,17 +1,18 @@
 {% extends 'base.html' %}
-{% block scripts%}
 
+{% block content %}
+{% block scripts%}
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 <script>
 $(document).ready(function(){
     var ctx = document.getElementById('myChart').getContext('2d');
     var myChart = new Chart(ctx, {
-        type: 'bar',
+        type: 'line',
         data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: [{% for item in qs %}'{{item.date}}',{% endfor %}],
             datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
+                label: 'Total Score',
+                data: [{% for item in qs %}{{item.total_score}},{% endfor %}],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -44,14 +45,10 @@ $(document).ready(function(){
 
 });
 
-window.onload = function() {
-      var ctx = document.getElementById('myChart').getContext('2d');
-      window.myPie = new Chart(ctx, myChart);
-    };
 
 </script>
 {% endblock scripts%}
 
-{% block content %}
-<canvas id="myChart" width="400" height="400"></canvas>
+
+<canvas id="myChart" width="400" height="200"></canvas>
 {% endblock %}  

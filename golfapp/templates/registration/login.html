@@ -1,14 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="mainhead">
-<h1>Log In</h1>
+<div class="mainhead2">
+<h6>Log In</h6>
 </div>
 <form method="post" action="{%url 'login' %}" id="formmain">
     {% csrf_token %}
     <table class="scoreform">
     {{ form }}
 </table>
-    <input type="submit" class="button is-warning is-outlined large" value="login" id="login">
+    <input type="submit" class="button is-info is-outlined large" value="login" id="login">
     <input type="hidden" name="next" value="{{ next }}">
 </form>
 {% endblock %}
