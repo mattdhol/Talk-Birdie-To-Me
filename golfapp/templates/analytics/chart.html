@@ -2,6 +2,7 @@
 
 {% block content %}
 {% block scripts%}
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
 <script>
 $(document).ready(function(){
@@ -9,34 +10,34 @@ $(document).ready(function(){
     var myChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: [{% for item in qs %}'{{item.date}}',{% endfor %}],
+            labels: [{% for item in qs %}'{{item.date}}', {% endfor %}],
             datasets: [{
                 label: 'Total Score',
                 data: [{% for item in qs %}{{item.total_score}},{% endfor %}],
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
                     'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
                 ],
                 borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
+                    '#078002',
                 ],
-                borderWidth: 1
+                borderWidth: 3
             }]
         },
         options: {
+            legend: {
+                
+                display: true,
+                position: 'top',
+                labels: {
+                "fontSize": 20,
+                }
+
+            },
             scales: {
                 yAxes: [{
                     ticks: {
                         beginAtZero: true
+                        
                     }
                 }]
             }
@@ -44,11 +45,27 @@ $(document).ready(function(){
     });
 
 });
-
-
 </script>
 {% endblock scripts%}
 
 
-<canvas id="myChart" width="400" height="200"></canvas>
+<canvas id="myChart" width="500" height="200"></canvas>
+
+<section class="section">
+<div class="container8"><h5>Total Stats</h5>
+<div class="container5">
+           <br> <h11 >Average Score : {{score_ave}}</h11> </br>
+           <br> <h11 >Best Score : {{score_best}}</h11></br>
+            <br><h11 >Total Strokes : {{total_strokes}}</h11></br>
+</div>
+</div>
+
+      <div class="container8">
+        <div class="container5"><h5>Last Five Rounds Stats</h5>
+          <br><h12 >Average Score : &emsp;{{avg_last_five}}</h12><br />
+          <br><h12 >Best Score : &emsp;{{last_five_lowest}}</h12><br />
+          <br><h12 >Total Strokes : &emsp;{{last_five_strokes}}</h12><br />
+        
+  </div>
+</section>
 {% endblock %}  

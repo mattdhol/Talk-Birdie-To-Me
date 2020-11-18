@@ -6,15 +6,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Talk Birdie to Me</title>
+  <title>Talk Birdie To Me</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" integrity="sha256-Uv9BNBucvCPipKQ2NS9wYpJmi8DTOEfTA/nH2aoJALw=" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.css" integrity="sha256-aa0xaJgmK/X74WM224KMQeNQC2xYKwlAt08oZqjeF0E=" crossorigin="anonymous" />
 </head>
 <body>
@@ -35,12 +32,14 @@
 
 </div>
 <div id="navbarBasicExample" class="navbar-menu">
-<div class="navbar-start">
+
+  
+
 <a class="navbar-item" href="/">
- 
-<h1>&nbsp;&nbsp;&nbsp;&nbsp;Home</h1>
+  <div class="button is-success is-outlined large"> 
+<h1>Home</h1>
+  </div>
 </a>  
-</div>
 
 {% if user.is_authenticated %}
 
@@ -48,49 +47,81 @@
 <a class="navbar-item">
 <!-- Scores Home -->
 </a>  
-
+<div id="navbarBasicExample" class="navbar-menu">
 <div class="navbar-item has-dropdown is-hoverable">
 <a class="navbar-link">
+  <div class="button is-success is-outlined large"> 
   <h1>Scores Home</h1>
+  </div>
 </a>
-
 
 <div class="navbar-dropdown">
 
 <a class="navbar-item" href="/scores">
+  <div class="button is-success is-outlined large">
   <h1>See All My Scores</h1>
+</div>
 </a>
-<a class="navbar-item" href="{% url 'score_create' %}">
-  <h1>Add a New Total Score!</h1>
+<hr class="navbar-divider">
+<!-- <a class="navbar-item" href="{% url 'score_create' %}" style="text-align: center;"> -->
+<a class="navbar-item" href="/course" style="text-align: center;">
+
+  <div class="button is-success is-outlined large">
+  <h1>Add a New Score!</h1>
+</div>
 </a>
 <hr class="navbar-divider">
 <a class="navbar-item">
+  <div class="button is-success is-outlined large">
   <h1>Add a Score By Hole</h1>
+</div>
 </a>
 </div>
 </div>
-
+</div>
 <div class="navbar-item has-dropdown is-hoverable">
 <a class="navbar-link">
+  <div class="button is-success is-outlined large">
   <h1>Course Home</h1>
+</div>
 </a>
 
 <div class="navbar-dropdown">
 
 <a class="navbar-item" href="/course">
+  <div class="button is-success is-outlined large">
   <h1>See All My Courses</h1>
+</div>
 </a>
+<hr class="navbar-divider">
 <a class="navbar-item" href="{% url 'course_create' %}">
+  <div class="button is-success is-outlined large">
   <h1>Add a New Course! </h1>
+</div>
 </a>
 </div>
 </div>
 </div>
 
-<div id="navbarBasicExample" class="navbar-menu">
-<div class="navbar-start">
-  <a class="navbar-item" href="/analytics">
+
+<div class="navbar-item has-dropdown is-hoverable">
+  <a class="navbar-link">
+    <div class="button is-success is-outlined large">
     <h1>Analytics </h1>
+  
+  </div>
+  </a> 
+  <div class="navbar-dropdown">
+    <a class="navbar-item" href="/analytics">
+      <div class="button is-success is-outlined large">
+      <h1>Total Score</h1>
+      </div>
+    </a>
+    <hr class="navbar-divider">
+  <a class="navbar-item" href="/analytics/breakdown/">
+    <div class="button is-success is-outlined large">
+    <h1>Breakdown </h1>
+  </div>  
   </a>  
 </div>
 </div>

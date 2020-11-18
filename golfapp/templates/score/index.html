@@ -1,22 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
 
-
 <div class="mainhead2">
  <h6> Your Golf Scores</h6>
 </div>
 {% for score in score %}
-
+<div class="container5">
 <div class=cardhead>
 <div class="card">
 <div class="card-content">
-<h3> Total Score: {{ score.total_score}} </h3>
-
-<h3>  Course: {{ course.course_name}} </h3>
-
+<h3>  Course: {{ score.course}} </h3>
+<h3> Date: {{ score.date}} </h3>
+<br>
+<h3> <b>Total Score: {{ score.total_score}} </b></h3>
+</div>
 
 </div>
-<h4> Date: {{ score.date}} </h4>
 <!-- <h4> Number of Eagles: {{ score.number_of_eagles}} </h4> -->
 <h4> Number of Birdies: {{ score.number_of_birdies}} </h4>
 <h4> Number of Pars: {{ score.number_of_pars}} </h4>
@@ -27,6 +26,7 @@
 <h4> What to Remember: {{ score.memorable_moment}} </h4>
 <!-- <h4> Date Scorecard Was Entered: {{ score.created }} </h4> -->
 <div class="cardact">
+    
 <div class="button is-success is-outlined large"> 
 <a href="{% url 'score_update' score.id %} ">Edit</a>
 </div>

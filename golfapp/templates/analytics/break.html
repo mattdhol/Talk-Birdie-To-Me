@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% block scripts%}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+<script>
+$(document).ready(function(){
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: [{% for item in qs %}'{{item.date}}',{% endfor %}],
+            datasets: [{
+                    label: 'Birdies',
+                data: [{% for item in qs %}{{item.number_of_birdies}},{% endfor %}],
+                backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                ],
+                borderColor: [
+                'rgba(255, 99, 132, 1)',
+                ],
+                fill: false,
+                borderWidth: 3
+                },
+                {
+                label: 'Pars',
+                data: [{% for item in qs %}{{item.number_of_pars}},{% endfor %}, ],
+                backgroundColor: [
+                'rgba(153, 102, 255, 0.2)',
+                ],
+                borderColor: [
+                'rgba(153, 102, 255, 1)',
+                ],
+                fill: false,
+                borderWidth: 3
+            }, {
+                label: 'Fairways Hit',
+                data: [{% for item in qs %}{{item.number_of_fairways_hit}},{% endfor %}],
+                backgroundColor: [
+                'rgba(255, 206, 86, 0.2)',
+                ],
+                borderColor: [
+                'rgba(255, 206, 86, 1)',
+                ],
+                fill: false,
+                borderWidth: 3
+                },{
+                    label: 'Greens Hit',
+                data: [{% for item in qs %}{{item.number_of_greens_hit}},{% endfor %}],
+                backgroundColor: [
+                'rgba(75, 192, 192, 0.2)',
+                
+                ],
+                borderColor: [
+                'rgba(75, 192, 192, 1)',
+                ],
+                fill: false,
+                borderWidth: 3
+                },
+            ]
+        },
+        options: { 
+            legend: {
+                
+                display: true,
+                position: 'top',
+                labels: {
+                "fontSize": 20,
+                }
+
+            },
+        }
+    });
+
+});
+
+
+
+</script>
+{% endblock scripts%}
+
+<canvas id="myChart" width="500" height="175"></canvas>
+
+<body>
+    <br>
+    <h3 style="font-size: 200%;">Total Stats</h3>
+    <section class="section">
+      <div class="container6">
+            <div>
+                <br><h7>Birdie Average :&emsp;{{birdie_ave}}</h7> <br/>
+                <br><h7>Most Birdies : &emsp;{{birdie_max}}</h7><br />
+                <br><h7>Total Birdies : &emsp;{{birdie_total}}</h7><br />
+            </div>
+        </div>
+        <div class="container2">
+        <div>
+            <br><h8 >Par Average : &emsp;{{par_ave}}</h8><br />
+            <br><h8 >Most Pars : &emsp;{{par_max}}</h8><br />
+            <br><h8 >Total Pars : &emsp;{{par_total}}</h8><br />
+        </div>
+    </div>
+        
+        <div class="container3">
+        <div>
+           <br> <h9 >Fairways Hit Average : &emsp;{{fairways_hit_ave}}</h9><br />
+            <br><h9 >Most Fairways Hit : &emsp;{{fairways_hit_max}}</h9><br />
+            <br><h9 >Total Fairways Hit : &emsp;{{fairways_hit_total}}</h9><br />
+        </div>
+        </div>
+       
+        <div class="container4">
+        <div>
+            <br><h10 >Greens Hit Average : &emsp;{{greens_hit_ave}}</h10><br />
+            <br><h10 >Most Greens Hit : &emsp;{{greens_hit_max}}</h10><br />
+            <br><h10 >Total Greens Hit : &emsp;{{greens_hit_total}}</h10><br />
+        </div>
+        
+    </section>
+    <br>
+    <h3 style="font-size: 200%;">Last Five Rounds Stats</h3>
+    <section class="section">
+        <div class="container6">
+              <div>
+                  <br><h7>Birdie Average :&emsp;{{birdie_last_five}}</h7> <br/>
+                  <br><h7>Most Birdies : &emsp;{{birdie_max}}</h7><br />
+                  <br><h7>Total Birdies : &emsp;{{birdie_total}}</h7><br />
+              </div>
+          </div>
+          <div class="container2">
+          <div>
+              <br><h8 >Par Average : &emsp;{{par_ave}}</h8><br />
+              <br><h8 >Most Pars : &emsp;{{par_max}}</h8><br />
+              <br><h8 >Total Pars : &emsp;{{par_total}}</h8><br />
+          </div>
+      </div>
+          
+          <div class="container3">
+          <div>
+             <br> <h9 >Fairways Hit Average : &emsp;{{fairways_hit_ave}}</h9><br />
+              <br><h9 >Most Fairways Hit : &emsp;{{fairways_hit_max}}</h9><br />
+              <br><h9 >Total Fairways Hit : &emsp;{{fairways_hit_total}}</h9><br />
+          </div>
+          </div>
+         
+          <div class="container4">
+          <div>
+              <br><h10 >Greens Hit Average : &emsp;{{greens_hit_ave}}</h10><br />
+              <br><h10 >Most Greens Hit : &emsp;{{greens_hit_max}}</h10><br />
+              <br><h10 >Total Greens Hit : &emsp;{{greens_hit_total}}</h10><br />
+          </div>
+          
+      </section>
+
+
+{% endblock %}  

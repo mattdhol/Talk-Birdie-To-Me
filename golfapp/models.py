@@ -21,11 +21,8 @@ class Course(models.Model):
 class Score(models.Model):
     date = models.DateField()
     total_score = models.IntegerField()
-    number_of_eagles = models.IntegerField(default=0)
     number_of_birdies = models.IntegerField(default=0)
     number_of_pars = models.IntegerField(default=0)
-    number_of_bogeys = models.IntegerField(default=0)
-    number_of_blow_up_holes = models.IntegerField(default=0)
     number_of_fairways_hit = models.IntegerField(default=0)
     number_of_greens_hit = models.IntegerField(default=0)
     memorable_moment = models.TextField(null=True, blank=True)
@@ -39,6 +36,8 @@ class Score(models.Model):
     def get_absolute_url(self):
         return "/scores/"
 
+    class Meta:
+        ordering = ('date',)
 
 
     # def __str__(self):
