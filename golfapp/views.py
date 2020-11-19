@@ -179,7 +179,7 @@ def analytics(request):
 
 @login_required
 def score_index(request):
-    score = Score.objects.filter(user=request.user)
+    score = Score.objects.filter(user=request.user).order_by('-date')
     return render(request, 'score/index.html', {'score': score})
 
 @login_required
@@ -200,10 +200,10 @@ def course_index(request):
 
     # current_user_courses = Course.objects.filter(user=request.user)
     # print(current_user_courses)
-    # course_scores = Score.objects.all()
+    # course_scores = Score.objects.all().order_by('-date')
     # print(course_scores)    
 
-    return render(request, 'course/index.html', {'course': course})
+    return render(request, 'course/index.html', {'course': course,})
 
 @login_required
 def course_detail(request, course_id):
