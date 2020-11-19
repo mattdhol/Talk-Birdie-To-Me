@@ -4,7 +4,6 @@ from .models import Score
 from .models import Course
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .forms import ScoreForm
-# from .forms import CourseForm
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
@@ -15,18 +14,7 @@ import operator
 from django.db.models import Avg, Max, Min, Sum
 from django.contrib.auth.models import User
 
-
-# p = Score.objects.get('total_score')
-# stars_average = p.rating_set.aggregate(Avg('stars')).values()[0]
-
-# def score_ave(request):
-#   score_ave = Score.objects.aggregate(Avg('total_score')
-#   print(score_ave)
-
-
-class ScoreChart(TemplateView):
-
-  
+class ScoreChart(TemplateView):  
   template_name = 'analytics/chart.html'
   def get_context_data(self, **kwargs):
     context = super().get_context_data(**kwargs)
@@ -44,7 +32,6 @@ class ScoreChart(TemplateView):
     total_strokes = current_user_score.aggregate(Sum('total_score'))
     context["total_strokes"] = total_strokes['total_score__sum']
 
-
     last_five = current_user_score.filter().order_by('-date')[:5]
 
     avg_last_five = last_five.aggregate(Avg('total_score'))
@@ -55,9 +42,7 @@ class ScoreChart(TemplateView):
 
     last_five_strokes = last_five.aggregate(Sum('total_score'))
     context["last_five_strokes"] = last_five_strokes['total_score__sum']
-
     return context
-
 
 class ScoreChartBreak(TemplateView):
   template_name = 'analytics/break.html'
@@ -118,7 +103,6 @@ class ScoreChartBreak(TemplateView):
 
     birdie_five_most = last_five.aggregate(Max('number_of_birdies'))
     context["birdie_five_most"] = (birdie_five_most['number_of_birdies__max'])
-    print(birdie_five_most)
 
     last_five_birdie_sum = last_five.aggregate(Sum('number_of_birdies'))
     context["last_five_birdie_sum"] = (last_five_birdie_sum['number_of_birdies__sum'])
@@ -149,15 +133,13 @@ class ScoreChartBreak(TemplateView):
     context["last_five_green_max"] = (last_five_green_max['number_of_greens_hit__max'])
 
     last_five_greens_sum = last_five.aggregate(Sum('number_of_greens_hit'))
-    context["last_five_greens_sum"] = (last_five_greens_sum['number_of_greens_hit__sum'])  
-    
+    context["last_five_greens_sum"] = (last_five_greens_sum['number_of_greens_hit__sum'])   
     return context
 
     
 class CourseCreate(LoginRequiredMixin, CreateView):
     model = Course
     fields = ['course_name', 'par', 'things_to_remember']
-
     def form_valid(self, form):
           # Assign the logged in user (self.request.user)
       form.instance.user = self.request.user  # form.instance is the cat
@@ -172,17 +154,14 @@ class CourseUpdate(LoginRequiredMixin, UpdateView):
   model = Course
   fields = ['course_name', 'par', 'things_to_remember']
 
-
 class ScoreCreate(LoginRequiredMixin, CreateView):
   model = Score
   fields = ['date', 'total_score', 'number_of_birdies', 'number_of_pars', 'number_of_fairways_hit', 'number_of_greens_hit', 'memorable_moment']
-
   def form_valid(self, form):
   # Assign the logged in user (self.request.user)
     form.instance.user = self.request.user  # form.instance is the cat
   # Let the CreateView do its job as usual
     return super().form_valid(form)
-
 
 class ScoreDelete(LoginRequiredMixin, DeleteView):
   model = Score
@@ -191,7 +170,6 @@ class ScoreDelete(LoginRequiredMixin, DeleteView):
 class ScoreUpdate(LoginRequiredMixin, UpdateView):
   model = Score
   fields = "__all__"
-
 
 def home(request):
   return render(request, "about.html")
@@ -202,8 +180,6 @@ def analytics(request):
 @login_required
 def score_index(request):
     score = Score.objects.filter(user=request.user)
-    # print(score[0].course)
-
     return render(request, 'score/index.html', {'score': score})
 
 @login_required
@@ -211,60 +187,30 @@ def course_index(request):
     course = Course.objects.filter(user=request.user)
     tmp = sorted(course, key = operator.attrgetter('course_name'))
     course = tmp
-    
-
-
-  # course_scores = [{'braeben' : 80}, {'asdf': 90}]  
-
-
-    
-    counter = 0
-    sum = 0
-    for c in course:
-      print(c.course_name)
-      for score in c.score_set.all():
-        sum = int(sum) + int(score)
-        counter += 1
-    avg = sum / counter
-    print(avg)
-    
-      
-
-    # score_ave = Score.objects.aggregate(Avg('total_score'))
-    # print(score_ave['total_score__avg'])
-    # context["score_ave"] = score_ave['total_score__avg']
-    # print(score_ave)
-
-    return render(request, 'course/index.html', {'course': course, 'avg' : avg})
+    # counter = 0
+    # sum = 0
+    # for c in course:
+    #   print(c.course_name)
+    #   for score in c.score_set.all():
+    #     sum = int(sum) + int(score)
+    #     counter += 1
+    # avg = sum / counter
+    # print(avg)
+      # course_scores = [{'braeben' : 80}, {'asdf': 90}]  
+    return render(request, 'course/index.html', {'course': course})
 
 @login_required
 def course_detail(request, course_id):
     course = Course.objects.get(id=course_id)
     score_sets = course.score_set.all()
     score_form = ScoreForm()
-  
-    # score_ave = Score.score_set.all(id=score_id)
-    # print(score_ave)
-
-    # score_ave = Course.score_set.aggregate(Avg('total_score'))
-    # p = Property.objects.get(...)
-    # stars_average = p.rating_set.aggregate(Avg('stars')).values()[0]
-
-    # score_ave = score_sets.score_set.aggregate(Avg('total_score'))
-
-    # print(score_ave)
-
-    
-
     return render(request, 'course/detail.html',
     {'course': course, 'score_form': score_form})
 
 @login_required
 def add_score(request, course_id):
   print(request.user.id)
-  # create a ModelForm instance using the data in request.POST
   form = ScoreForm(request.POST)
-  # validate the form
   if form.is_valid():
     new_score = form.save(commit=False)
     new_score.course_id = course_id
