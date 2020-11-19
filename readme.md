@@ -2,7 +2,7 @@
 
 Input scores, see analytics! Know how your strengths and weakness to empower your game. Knowledge is power, bb.
 
-Tech Used: Python, Django, Bulma, Chart.JS 
+Tech Used: Python, Django, Bulma, Chart.JS, PostBird, PSQL, HTML, CSS
 
 Next Steps: 1) Avg per course, 2) Be able to input by hole, 3)Create a multi - multi database for players. 4) Bird Nav Bar
 
