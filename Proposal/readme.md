@@ -14,4 +14,5 @@ ______
 https://talkbirdie.herokuapp.com/
 
 
+![Image of Yaktocat](file:///Users/matthewdhollander/Desktop/GA%20Master/GA%20Finals/Golf%20App/golfapp/static/css/public/coursehome.png)
 
