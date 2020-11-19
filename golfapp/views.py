@@ -197,6 +197,12 @@ def course_index(request):
     # avg = sum / counter
     # print(avg)
       # course_scores = [{'braeben' : 80}, {'asdf': 90}]  
+
+    # current_user_courses = Course.objects.filter(user=request.user)
+    # print(current_user_courses)
+    # course_scores = Score.objects.all()
+    # print(course_scores)    
+
     return render(request, 'course/index.html', {'course': course})
 
 @login_required

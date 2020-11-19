@@ -6,6 +6,7 @@
 </div>
 {% for score in score %}
 <div> 
+    <div class="space">
 <div class="container5">
 <div class=cardhead>
 <div class="card">
@@ -33,6 +34,7 @@
 </div>
 <div class="button is-danger is-outlined large">
 <a href="{% url 'score_delete' score.id %}">Delete</a>
+</div>
 </div>
 </div>
 </div>
