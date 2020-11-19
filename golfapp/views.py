@@ -14,7 +14,7 @@ import operator
 from django.db.models import Avg, Max, Min, Sum
 from django.contrib.auth.models import User
 
-class ScoreChart(TemplateView):  
+class ScoreChart(LoginRequiredMixin, TemplateView):  
   template_name = 'analytics/chart.html'
   def get_context_data(self, **kwargs):
     context = super().get_context_data(**kwargs)
@@ -44,7 +44,7 @@ class ScoreChart(TemplateView):
     context["last_five_strokes"] = last_five_strokes['total_score__sum']
     return context
 
-class ScoreChartBreak(TemplateView):
+class ScoreChartBreak(LoginRequiredMixin, TemplateView):
   template_name = 'analytics/break.html'
   def get_context_data(self, **kwargs):
     context = super().get_context_data(**kwargs)
