@@ -50,22 +50,29 @@ $(document).ready(function(){
 
 
 <canvas id="myChart" width="500" height="200"></canvas>
-
+</div class= "wrapper">
 <section class="section">
-<div class="container8"><h5>Total Stats</h5>
+    
+<div class="container8">
+    <h13 style="font-size: 200%;">Total Stats</h13>
+    <br>
 <div class="container5">
            <br> <h11 >Average Score : {{score_ave}}</h11> </br>
            <br> <h11 >Best Score : {{score_best}}</h11></br>
             <br><h11 >Total Strokes : {{total_strokes}}</h11></br>
 </div>
 </div>
-
       <div class="container8">
-        <div class="container5"><h5>Last Five Rounds Stats</h5>
+        <h13 style="font-size: 200%;">Last Five Rounds Stats</h13>
+        <br>
+        <div class="container5">
           <br><h12 >Average Score : &emsp;{{avg_last_five}}</h12><br />
           <br><h12 >Best Score : &emsp;{{last_five_lowest}}</h12><br />
           <br><h12 >Total Strokes : &emsp;{{last_five_strokes}}</h12><br />
         
   </div>
+</div>
+</div>
 </section>
+
 {% endblock %}  

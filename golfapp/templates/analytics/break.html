@@ -74,18 +74,22 @@ $(document).ready(function(){
 
 });
 
-
-
 </script>
 {% endblock scripts%}
 
 <canvas id="myChart" width="500" height="175"></canvas>
 
 <body>
+
     <br>
-    <h3 style="font-size: 200%;">Total Stats</h3>
+    <div>
+        <div class=cardhead>
+            <div class="card">
+    <h13 style="font-size: 200%;">Total Stats</h13>
     <section class="section">
+        
       <div class="container6">
+          
             <div>
                 <br><h7>Birdie Average :&emsp;{{birdie_ave}}</h7> <br/>
                 <br><h7>Most Birdies : &emsp;{{birdie_max}}</h7><br />
@@ -114,42 +118,42 @@ $(document).ready(function(){
             <br><h10 >Most Greens Hit : &emsp;{{greens_hit_max}}</h10><br />
             <br><h10 >Total Greens Hit : &emsp;{{greens_hit_total}}</h10><br />
         </div>
-        
+    </div>
     </section>
     <br>
-    <h3 style="font-size: 200%;">Last Five Rounds Stats</h3>
+    <h13 style="font-size: 200%;">Last Five Rounds Stats</h13>
     <section class="section">
         <div class="container6">
               <div>
-                  <br><h7>Birdie Average :&emsp;{{birdie_last_five}}</h7> <br/>
-                  <br><h7>Most Birdies : &emsp;{{birdie_max}}</h7><br />
-                  <br><h7>Total Birdies : &emsp;{{birdie_total}}</h7><br />
+                  <br><h7>Birdie Average :&emsp;{{last_five_birdie_avg}}</h7> <br/>
+                  <br><h7>Most Birdies : &emsp;{{birdie_five_most}}</h7><br />
+                  <br><h7>Total Birdies : &emsp;{{last_five_birdie_sum}}</h7><br />
               </div>
           </div>
           <div class="container2">
           <div>
-              <br><h8 >Par Average : &emsp;{{par_ave}}</h8><br />
-              <br><h8 >Most Pars : &emsp;{{par_max}}</h8><br />
-              <br><h8 >Total Pars : &emsp;{{par_total}}</h8><br />
+              <br><h8 >Par Average : &emsp;{{last_five_par_avg}}</h8><br />
+              <br><h8 >Most Pars : &emsp;{{last_five_par_max}}</h8><br />
+              <br><h8 >Total Pars : &emsp;{{last_five_par_sum}}</h8><br />
           </div>
       </div>
           
           <div class="container3">
           <div>
-             <br> <h9 >Fairways Hit Average : &emsp;{{fairways_hit_ave}}</h9><br />
-              <br><h9 >Most Fairways Hit : &emsp;{{fairways_hit_max}}</h9><br />
-              <br><h9 >Total Fairways Hit : &emsp;{{fairways_hit_total}}</h9><br />
+             <br> <h9 >Fairways Hit Average : &emsp;{{last_five_fairway_avg}}</h9><br />
+              <br><h9 >Most Fairways Hit : &emsp;{{last_five_fairway_max}}</h9><br />
+              <br><h9 >Total Fairways Hit : &emsp;{{last_five_fairway_sum}}</h9><br />
           </div>
           </div>
          
           <div class="container4">
           <div>
-              <br><h10 >Greens Hit Average : &emsp;{{greens_hit_ave}}</h10><br />
-              <br><h10 >Most Greens Hit : &emsp;{{greens_hit_max}}</h10><br />
-              <br><h10 >Total Greens Hit : &emsp;{{greens_hit_total}}</h10><br />
-          </div>
-          
+              <br><h10 >Greens Hit Average : &emsp;{{last_five_green_avg}}</h10><br />
+              <br><h10 >Most Greens Hit : &emsp;{{last_five_green_max}}</h10><br />
+              <br><h10 >Total Greens Hit : &emsp;{{last_five_greens_sum}}</h10><br />
+          </div>  
       </section>
-
+            </div>
+            </div>
 
 {% endblock %}  

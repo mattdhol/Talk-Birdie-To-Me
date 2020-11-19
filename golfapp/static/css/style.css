@@ -314,7 +314,7 @@ text-align: center;
   text-align: center;
   max-width: 350px;
   margin: auto;
-  padding-bottom: 20px;
+  padding: 10px;
 }
 .container7{
   border-style: solid;
@@ -342,4 +342,24 @@ h12{
   position: relative;
   margin: auto;
   text-align: center
+}
+h13{
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: .01em;
+    text-shadow: .022em .022em .022em #111;
+    color: green;
+    font-family: 'Dancing Script', cursive;
+    position: relative;
+    margin: auto;
+    text-align: center;
+}
+h14{
+  margin: auto;
+  text-align: center;
+  justify-content: center;
+  position: relative;
+}
+h15{
+  text-align: center;
 }

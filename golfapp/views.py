@@ -25,6 +25,7 @@ from django.contrib.auth.models import User
 
 
 class ScoreChart(TemplateView):
+
   
   template_name = 'analytics/chart.html'
   def get_context_data(self, **kwargs):
@@ -109,17 +110,46 @@ class ScoreChartBreak(TemplateView):
     context["fairways_hit_total"] = fairways_hit_total['number_of_fairways_hit__sum']
 
 
-
-  #  birdie_max = current_user_score.aggregate(Max('number_of_birdies'))
-  #   context["birdie_max"] = birdie_max['number_of_birdies__max']
-
     last_five = current_user_score.filter().order_by('-date')[:5]
 
-    last_five_birdie = last_five.aggregate(Avg('number_of_birdies'))
-    context["birdie_last_five"] = (last_five_birdie['number_of_birdies__avg'])
-    print(context["birdie_last_five"])
-    # print(last_five_birdie)
-    # context["last_five_birdie"] = last_five_birdie['number_of_birdies__avg']
+    last_five_birdie_avg = last_five.aggregate(Avg('number_of_birdies'))
+    context["last_five_birdie_avg"] = (last_five_birdie_avg['number_of_birdies__avg'])
+
+
+    birdie_five_most = last_five.aggregate(Max('number_of_birdies'))
+    context["birdie_five_most"] = (birdie_five_most['number_of_birdies__max'])
+    print(birdie_five_most)
+
+    last_five_birdie_sum = last_five.aggregate(Sum('number_of_birdies'))
+    context["last_five_birdie_sum"] = (last_five_birdie_sum['number_of_birdies__sum'])
+
+
+    last_five_par_avg = last_five.aggregate(Avg('number_of_pars'))
+    context["last_five_par_avg"] = (last_five_par_avg['number_of_pars__avg'])
+
+    last_five_par_max = last_five.aggregate(Max('number_of_pars'))
+    context["last_five_par_max"] = (last_five_par_max['number_of_pars__max'])
+
+    last_five_par_sum = last_five.aggregate(Sum('number_of_pars'))
+    context["last_five_par_sum"] = (last_five_par_sum['number_of_pars__sum'])
+
+    last_five_fairway_avg = last_five.aggregate(Avg('number_of_fairways_hit'))
+    context["last_five_fairway_avg"] = (last_five_fairway_avg['number_of_fairways_hit__avg'])
+
+    last_five_fairway_max = last_five.aggregate(Max('number_of_fairways_hit'))
+    context["last_five_fairway_max"] = (last_five_fairway_max['number_of_fairways_hit__max'])
+
+    last_five_fairway_sum = last_five.aggregate(Sum('number_of_fairways_hit'))
+    context["last_five_fairway_sum"] = (last_five_fairway_sum['number_of_fairways_hit__sum'])  
+
+    last_five_green_avg = last_five.aggregate(Avg('number_of_greens_hit'))
+    context["last_five_green_avg"] = (last_five_green_avg['number_of_greens_hit__avg'])
+
+    last_five_green_max = last_five.aggregate(Max('number_of_greens_hit'))
+    context["last_five_green_max"] = (last_five_green_max['number_of_greens_hit__max'])
+
+    last_five_greens_sum = last_five.aggregate(Sum('number_of_greens_hit'))
+    context["last_five_greens_sum"] = (last_five_greens_sum['number_of_greens_hit__sum'])  
     
     return context
 
