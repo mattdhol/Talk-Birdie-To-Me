@@ -12,7 +12,7 @@ from django.views.generic import  TemplateView
 from django.views.generic import View
 import operator
 from django.db.models import Avg, Max, Min, Sum
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User 
 
 class ScoreChart(LoginRequiredMixin, TemplateView):  
   template_name = 'analytics/chart.html'

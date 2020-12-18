@@ -16,150 +16,126 @@
 </head>
 <body>
 
-<nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
-<div style="font-family: 'Dancing Script', cursive;">
-
-</a>
-
-<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-<span aria-hidden="true"></span>
-<span aria-hidden="true"></span>
-<span aria-hidden="true"></span>
-</a>
+<nav class="navbar is-fixed" role="navigation" aria-label="main navigation">
+  <div style="font-family: 'Dancing Script', cursive;">
+  </a>
+    <a href="/" role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="true" data-target="navbarBasicExample">
+    <span aria-hidden="false"></span>
+    <span aria-hidden="true"></span>
+    <span aria-hidden="true"></span>
+  </a>
 </div>
-<div>
 
-
-</div>
-<div id="navbarBasicExample" class="navbar-menu">
-
-  
-
+<div id="navbarBasicExample" class="navbar-menu ">
 <a class="navbar-item" href="/">
   <div class="button is-success is-outlined large"> 
-<h1>Home</h1>
+  <h1>Home</h1>
   </div>
 </a>  
 
 {% if user.is_authenticated %}
 
 <div class="navbar-start has dropdown">
-<a class="navbar-item">
-<!-- Scores Home -->
-</a>  
-<div id="navbarBasicExample" class="navbar-menu">
-<div class="navbar-item has-dropdown is-hoverable">
-<a class="navbar-link">
-  <div class="button is-success is-outlined large"> 
-  <h1>Scores Home</h1>
+  <a class="navbar-item">
+  <!-- Scores Home -->
+  </a>  
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-item has-dropdown is-hoverable">
+      <a class="navbar-link">
+      <div class="button is-success is-outlined large"> 
+        <h1>Scores Home</h1>
+      </div>
+      </a>
+
+      <div class="navbar-dropdown">
+
+        <a class="navbar-item" href="/scores">
+          <div class="button is-success is-outlined large">
+            <h1>See All My Scores</h1>
+          </div>
+        </a>
+        <hr class="navbar-divider">
+        <a class="navbar-item" href="/course" style="text-align: center;">
+          <div class="button is-success is-outlined large">
+          <h1>Add a New Score!</h1>
+        </div>
+        </a>
+        <hr class="navbar-divider">
+        <a class="navbar-item">
+          <div class="button is-success is-outlined large">
+            <h1>Add a Score By Hole</h1>
+          </div>
+        </a>
+      </div>
+    </div>
   </div>
-</a>
-
-<div class="navbar-dropdown">
-
-<a class="navbar-item" href="/scores">
-  <div class="button is-success is-outlined large">
-  <h1>See All My Scores</h1>
-</div>
-</a>
-<hr class="navbar-divider">
-<!-- <a class="navbar-item" href="{% url 'score_create' %}" style="text-align: center;"> -->
-<a class="navbar-item" href="/course" style="text-align: center;">
-
-  <div class="button is-success is-outlined large">
-  <h1>Add a New Score!</h1>
-</div>
-</a>
-<hr class="navbar-divider">
-<a class="navbar-item">
-  <div class="button is-success is-outlined large">
-  <h1>Add a Score By Hole</h1>
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="navbar-item has-dropdown is-hoverable">
-<a class="navbar-link">
-  <div class="button is-success is-outlined large">
-  <h1>Course Home</h1>
-</div>
-</a>
-
-<div class="navbar-dropdown">
-
-<a class="navbar-item" href="/course">
-  <div class="button is-success is-outlined large">
-  <h1>See All My Courses</h1>
-</div>
-</a>
-<hr class="navbar-divider">
-<a class="navbar-item" href="{% url 'course_create' %}">
-  <div class="button is-success is-outlined large">
-  <h1>Add a New Course! </h1>
-</div>
-</a>
-</div>
-</div>
-</div>
-
-
-<div class="navbar-item has-dropdown is-hoverable">
-  <a class="navbar-link">
+  <div class="navbar-item has-dropdown is-hoverable">
+    <a class="navbar-link">
     <div class="button is-success is-outlined large">
-    <h1>Analytics </h1>
-  
+    <h1>Course Home</h1>
+    </div>
+    </a>
+    <div class="navbar-dropdown">
+      <a class="navbar-item" href="/course">
+      <div class="button is-success is-outlined large">
+      <h1>See All My Courses</h1>
+      </div>
+      </a>
+      <hr class="navbar-divider">
+      <a class="navbar-item" href="{% url 'course_create' %}">
+        <div class="button is-success is-outlined large">
+          <h1>Add a New Course! </h1>
+        </div>
+      </a>
+    </div>
   </div>
+</div>
+
+<div class="navbar-item has-dropdown is-hoverable">
+    <a class="navbar-link">
+    <div class="button is-success is-outlined large">
+      <h1>Analytics </h1>
+    </div>
   </a> 
   <div class="navbar-dropdown">
     <a class="navbar-item" href="/analytics">
-      <div class="button is-success is-outlined large">
+    <div class="button is-success is-outlined large">
       <h1>Total Score</h1>
-      </div>
+    </div>
     </a>
     <hr class="navbar-divider">
-  <a class="navbar-item" href="/analytics/breakdown/">
-    <div class="button is-success is-outlined large">
-    <h1>Breakdown </h1>
-  </div>  
-  </a>  
-</div>
-</div>
-
-
-<!-- <div id="navbarBasicExample" class="navbar-menu">
-  <div class="navbar-end">
-    <a class="navbar-item" href="/">
-      <h1> Hey, Gunslinger {{user}}..</h1> 
+    <a class="navbar-item" href="/analytics/breakdown/">
+      <div class="button is-success is-outlined large">
+       <h1>Breakdown </h1>
+      </div>  
     </a>  
   </div>
-  </div> -->
+</div>
 
 <div id="navbarBasicExample" class="navbar-menu">
   <div class="navbar-end">
     <a class="navbar-item" href="/">
-      <h3> {{user}}...&nbsp; &nbsp;</h3> 
-      
-      <div style="font-size:200%;",>
-        <h1 style="color: green;">Talk Birdie To Me</h1> 
-      </div>
+    <h3> {{user}}...&nbsp; &nbsp;</h3> 
+    <div style="font-size:200%;",>
+      <h1 style="color: green;">Talk Birdie To Me</h1> 
+    </div>
     </a>  
   </div>
-  </div>
+</div>
 
 
 <div id="navbarBasicExample" class="navbar-end">
   <div class="navbar-end">
     <a class="navbar-item" href="{% url 'logout' %}" >
       <div class="button is-primary is-outlined large">
-      Log Out 
-    </div>
+       Log Out 
+      </div>
     </a>  
   </div>
-  </div>
+</div>
 </a>
 <div>
-  Space
+  (Space)
 </div>
 
 {% else %}
@@ -169,7 +145,7 @@
 <div class="buttons">
 
 <div style="font-size:200%;",>
-  <h1 style="color: green;">Talk Birdie To Me</h1> 
+<h1 style="color: green;">Talk Birdie To Me</h1> 
 </div>
 &nbsp;
 &nbsp;
@@ -177,13 +153,15 @@
 
 </a>
 <a href="{% url 'signup' %}" class="button is-primary is-outlined large"> 
-  Sign Up
+Sign Up
 </a>
 
 </a>
 <a href="{% url 'login' %}" class="button is-info is-outlined large"> 
 Log in
 </a>
+
+
 
 
 </div>
