@@ -63,6 +63,18 @@ class ScoreChartBreak(LoginRequiredMixin, TemplateView):
     context["par_total"] = par_total['number_of_pars__sum']
 
 
+    putt_ave = current_user_score.aggregate(Avg('number_of_putts'))
+    putt_ave['number_of_putts__avg'] = round(putt_ave['number_of_putts__avg'],2)
+    context["putt_ave"] = putt_ave['number_of_putts__avg']
+
+    putt_min = current_user_score.aggregate(Min('number_of_putts'))
+    context["putt_min"] = putt_min['number_of_putts__min']
+
+    putt_total = current_user_score.aggregate(Sum('number_of_putts'))
+    context["putt_total"] = putt_total['number_of_putts__sum']
+
+
+
     birdie_ave = current_user_score.aggregate(Avg('number_of_birdies'))
     birdie_ave['number_of_birdies__avg'] = round(birdie_ave['number_of_birdies__avg'],2)
     context["birdie_ave"] = birdie_ave['number_of_birdies__avg']
@@ -100,12 +112,13 @@ class ScoreChartBreak(LoginRequiredMixin, TemplateView):
     last_five_birdie_avg = last_five.aggregate(Avg('number_of_birdies'))
     context["last_five_birdie_avg"] = (last_five_birdie_avg['number_of_birdies__avg'])
 
-
     birdie_five_most = last_five.aggregate(Max('number_of_birdies'))
     context["birdie_five_most"] = (birdie_five_most['number_of_birdies__max'])
 
+
     last_five_birdie_sum = last_five.aggregate(Sum('number_of_birdies'))
     context["last_five_birdie_sum"] = (last_five_birdie_sum['number_of_birdies__sum'])
+
 
 
     last_five_par_avg = last_five.aggregate(Avg('number_of_pars'))
@@ -116,6 +129,19 @@ class ScoreChartBreak(LoginRequiredMixin, TemplateView):
 
     last_five_par_sum = last_five.aggregate(Sum('number_of_pars'))
     context["last_five_par_sum"] = (last_five_par_sum['number_of_pars__sum'])
+
+
+
+    last_five_putt_avg = last_five.aggregate(Avg('number_of_putts'))
+    context["last_five_putt_avg"] = (last_five_putt_avg['number_of_putts__avg'])
+
+    last_five_putt_min = last_five.aggregate(Min('number_of_putts'))
+    context["last_five_putt_min"] = (last_five_putt_min['number_of_putts__min'])
+
+    last_five_putt_sum = last_five.aggregate(Sum('number_of_putts'))
+    context["last_five_putt_sum"] = (last_five_putt_sum['number_of_putts__sum'])
+
+
 
     last_five_fairway_avg = last_five.aggregate(Avg('number_of_fairways_hit'))
     context["last_five_fairway_avg"] = (last_five_fairway_avg['number_of_fairways_hit__avg'])

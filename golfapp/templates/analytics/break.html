@@ -56,6 +56,18 @@ $(document).ready(function(){
                 ],
                 fill: false,
                 borderWidth: 3
+                },{
+                    label: 'Putts',
+                data: [{% for item in qs %}{{item.number_of_putts}},{% endfor %}],
+                backgroundColor: [
+                'rgba(220,220,220,0.8)',
+                
+                ],
+                borderColor: [
+                'rgba(30, 130, 76, 1)',
+                ],
+                fill: false,
+                borderWidth: 3
                 },
             ]
         },
@@ -118,6 +130,17 @@ $(document).ready(function(){
         </div>
     </div>
     </section>
+
+
+    <div class="container3">
+        <div>
+           <br> <h9 >Putts Hit Average : &emsp;{{putt_ave}}</h9><br />
+            <br><h9 >Least Putts Hit : &emsp;{{putt_min}}</h9><br />
+            <br><h9 >Total Putts Hit : &emsp;{{putt_total}}</h9><br />
+        </div>
+        </div>
+
+
     <br>
     <h13 style="font-size: 200%;">Last Five Rounds Stats</h13>
     <section class="section">
@@ -150,7 +173,18 @@ $(document).ready(function(){
               <br><h10 >Most Greens Hit : &emsp;{{last_five_green_max}}</h10><br />
               <br><h10 >Total Greens Hit : &emsp;{{last_five_greens_sum}}</h10><br />
           </div>  
+
+          
+          
       </section>
+
+      <div class="container3">
+        <div>
+           <br> <h9 >Putts Hit Average : &emsp;{{last_five_putt_avg}}</h9><br />
+            <br><h9 >Least Putts Hit : &emsp;{{last_five_putt_min}}</h9><br />
+            <br><h9 >Total Putts Hit : &emsp;{{last_five_putt_sum}}</h9><br />
+        </div>
+        </div>
             </div>
             </div>
 

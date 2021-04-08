@@ -21,6 +21,7 @@ class Course(models.Model):
 class Score(models.Model):
     date = models.DateField()
     total_score = models.IntegerField()
+    number_of_putts = models.IntegerField(default=0)
     number_of_birdies = models.IntegerField(default=0)
     number_of_pars = models.IntegerField(default=0)
     number_of_fairways_hit = models.IntegerField(default=0)
