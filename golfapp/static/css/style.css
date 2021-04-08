@@ -135,7 +135,7 @@ label[for="id_number_of_bogeys"],
 label[for="id_number_of_blow_up_holes"],
 label[for="id_number_of_fairways_hit"],
 label[for="id_number_of_greens_hit"],
-label[for="id_number_of_putts"],
+label[for="id_number_of_p"],
 label[for="id_memorable_moment"],
 label[for="id_username"],
 label[for="id_password1"],
@@ -270,12 +270,30 @@ h9 {
   font-family: "Dancing Script", cursive;
   position: relative;
 }
+h3 {
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-shadow: 0.022em 0.022em 0.022em #111;
+  color: rgba(30, 130, 76, 1);
+  font-family: "Dancing Script", cursive;
+  position: relative;
+}
 h10 {
   font-size: 25px;
   font-weight: 700;
   letter-spacing: 0.01em;
   text-shadow: 0.022em 0.022em 0.022em #111;
   color: #4bc0c0;
+  font-family: "Dancing Script", cursive;
+  position: relative;
+}
+h16 {
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-shadow: 0.022em 0.022em 0.022em #111;
+  color: rgba(30, 130, 76, 1);
   font-family: "Dancing Script", cursive;
   position: relative;
 }
@@ -325,6 +343,14 @@ h4 {
   flex: 1;
   text-align: center;
 }
+
+.container13 {
+  border-style: solid;
+  color: rgba(30, 130, 76, 1);
+  flex: 1;
+  text-align: center;
+}
+
 .container4 {
   border-style: solid;
   color: #4bc0c0;
