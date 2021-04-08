@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'golfcollector.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'golf',
+        'NAME': 'golfdata',
     }
 }   
 
