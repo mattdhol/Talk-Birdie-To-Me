@@ -182,7 +182,7 @@ class CourseUpdate(LoginRequiredMixin, UpdateView):
 
 class ScoreCreate(LoginRequiredMixin, CreateView):
   model = Score
-  fields = ['date', 'total_score', 'number_of_birdies', 'number_of_pars', 'number_of_fairways_hit', 'number_of_greens_hit', 'memorable_moment']
+  fields = ['date', 'total_score', 'number_of_birdies', 'number_of_pars', 'number_of_fairways_hit', 'number_of_greens_hit', 'number_of_putts', 'memorable_moment']
   def form_valid(self, form):
   # Assign the logged in user (self.request.user)
     form.instance.user = self.request.user  # form.instance is the cat
