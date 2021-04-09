@@ -6,9 +6,6 @@
 * {
   margin: 3px;
   padding: 3px;
-  border: 7px;
-  margin-bottom: 10px;
-  margin-top: -18px;
 }
 
 .cardmain {
@@ -134,6 +131,7 @@ label[for="id_total_score"],
 label[for="id_number_of_eagles"],
 label[for="id_number_of_birdies"],
 label[for="id_number_of_pars"],
+label[for="id_number_of_putts"],
 label[for="id_number_of_bogeys"],
 label[for="id_number_of_blow_up_holes"],
 label[for="id_number_of_fairways_hit"],
@@ -339,18 +337,21 @@ h4 {
   color: #fe6384;
   flex: 1;
   text-align: center;
+  border-width: 6px;
 }
 .container2 {
   border-style: solid;
   color: #9966ff;
   flex: 1;
   text-align: center;
+  border-width: 6px;
 }
 .container3 {
   border-style: solid;
   color: #fece56;
   flex: 1;
   text-align: center;
+  border-width: 6px;
 }
 
 .container13 {
@@ -360,6 +361,7 @@ h4 {
   max-width: 360px;
   text-align: center;
   margin: auto;
+  border-width: 6px;
 }
 
 .container4 {
@@ -367,11 +369,13 @@ h4 {
   color: #4bc0c0;
   flex: 1;
   text-align: center;
+  border-width: 6px;
 }
 .section {
   display: flex;
   padding: -30px;
   margin-bottom: -26px;
+  margin-top: -15px;
 }
 .container5 {
   border-style: solid;
@@ -396,6 +400,7 @@ h4 {
   padding-bottom: 20px;
   display: flex;
   flex-direction: row;
+  border-width: 6px;
 }
 h12 {
   font-size: 25px;
