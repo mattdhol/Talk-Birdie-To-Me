@@ -4,8 +4,11 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 
 * {
-  margin: 0;
-  padding: 0;
+  margin: 3px;
+  padding: 3px;
+  border: 7px;
+  margin-bottom: 10px;
+  margin-top: -18px;
 }
 
 .cardmain {
@@ -241,6 +244,7 @@ h6 {
 .section {
   display: flex;
   justify-content: wrap;
+  padding: -10px;
 }
 
 h7 {
@@ -251,6 +255,7 @@ h7 {
   color: #fe6384;
   font-family: "Dancing Script", cursive;
   position: relative;
+  text-decoration: underline;
 }
 h8 {
   font-size: 25px;
@@ -260,6 +265,7 @@ h8 {
   color: #9966ff;
   font-family: "Dancing Script", cursive;
   position: relative;
+  text-decoration: underline;
 }
 h9 {
   font-size: 25px;
@@ -269,6 +275,7 @@ h9 {
   color: #fece56;
   font-family: "Dancing Script", cursive;
   position: relative;
+  text-decoration: underline;
 }
 h3 {
   font-size: 25px;
@@ -287,6 +294,7 @@ h10 {
   color: #4bc0c0;
   font-family: "Dancing Script", cursive;
   position: relative;
+  text-decoration: underline;
 }
 h16 {
   font-size: 25px;
@@ -296,6 +304,7 @@ h16 {
   color: rgba(30, 130, 76, 1);
   font-family: "Dancing Script", cursive;
   position: relative;
+  text-decoration: underline;
 }
 h11 {
   font-size: 25px;
@@ -348,7 +357,9 @@ h4 {
   border-style: solid;
   color: rgba(30, 130, 76, 1);
   flex: 1;
+  max-width: 360px;
   text-align: center;
+  margin: auto;
 }
 
 .container4 {
@@ -360,6 +371,7 @@ h4 {
 .section {
   display: flex;
   padding: -30px;
+  margin-bottom: -26px;
 }
 .container5 {
   border-style: solid;
