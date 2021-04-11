@@ -3,11 +3,6 @@
   } */
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 
-* {
-  margin: 3px;
-  padding: 3px;
-}
-
 .cardmain {
   max-width: 1150px;
   margin-left: auto;
@@ -314,6 +309,7 @@ h11 {
   position: relative;
   margin: auto;
   text-align: center;
+  text-decoration: underline;
 }
 
 h3 {
@@ -338,6 +334,9 @@ h4 {
   flex: 1;
   text-align: center;
   border-width: 6px;
+  box-shadow: 10px 10px 8px #888888;
+  margin: 6px;
+  padding: 3px;
 }
 .container2 {
   border-style: solid;
@@ -345,6 +344,9 @@ h4 {
   flex: 1;
   text-align: center;
   border-width: 6px;
+  box-shadow: 10px 10px 8px #888888;
+  margin: 6px;
+  padding: 3px;
 }
 .container3 {
   border-style: solid;
@@ -352,6 +354,9 @@ h4 {
   flex: 1;
   text-align: center;
   border-width: 6px;
+  box-shadow: 10px 10px 8px #888888;
+  margin: 6px;
+  padding: 3px;
 }
 
 .container13 {
@@ -362,6 +367,7 @@ h4 {
   text-align: center;
   margin: auto;
   border-width: 6px;
+  box-shadow: 10px 10px 8px #888888;
 }
 
 .container4 {
@@ -370,6 +376,9 @@ h4 {
   flex: 1;
   text-align: center;
   border-width: 6px;
+  box-shadow: 10px 10px 8px #888888;
+  margin: 6px;
+  padding: 3px;
 }
 .section {
   display: flex;
@@ -383,6 +392,7 @@ h4 {
   text-align: center;
   margin: auto;
   padding: 10px;
+  box-shadow: 10px 10px 8px #888888;
 }
 .container7 {
   border-style: solid;
@@ -412,6 +422,7 @@ h12 {
   position: relative;
   margin: auto;
   text-align: center;
+  text-decoration: underline;
 }
 h13 {
   font-size: 25px;
