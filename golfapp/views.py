@@ -53,6 +53,8 @@ class ScoreChartBreak(LoginRequiredMixin, TemplateView):
     context["qs"] = current_user_score
     allscore = Score.objects.all()
 
+    # Total 
+
     par_ave = current_user_score.aggregate(Avg('number_of_pars'))
     par_ave['number_of_pars__avg'] = round(par_ave['number_of_pars__avg'],2)
     context["par_ave"] = par_ave['number_of_pars__avg']
@@ -62,6 +64,8 @@ class ScoreChartBreak(LoginRequiredMixin, TemplateView):
 
     par_total = current_user_score.aggregate(Sum('number_of_pars'))
     context["par_total"] = par_total['number_of_pars__sum']
+
+    # Putt Ave
 
 
     putt_ave = current_user_score.aggregate(Avg('number_of_putts'))
@@ -74,7 +78,7 @@ class ScoreChartBreak(LoginRequiredMixin, TemplateView):
     putt_total = current_user_score.aggregate(Sum('number_of_putts'))
     context["putt_total"] = putt_total['number_of_putts__sum']
 
-
+# birdie ave
 
     birdie_ave = current_user_score.aggregate(Avg('number_of_birdies'))
     birdie_ave['number_of_birdies__avg'] = round(birdie_ave['number_of_birdies__avg'],2)
@@ -85,6 +89,8 @@ class ScoreChartBreak(LoginRequiredMixin, TemplateView):
 
     birdie_total = current_user_score.aggregate(Sum('number_of_birdies'))
     context["birdie_total"] = birdie_total['number_of_birdies__sum']
+
+    # greens hit
 
     greens_hit = current_user_score.aggregate(Avg('number_of_greens_hit'))
     greens_hit['number_of_greens_hit__avg'] = round(greens_hit['number_of_greens_hit__avg'],2)
@@ -97,6 +103,8 @@ class ScoreChartBreak(LoginRequiredMixin, TemplateView):
     greens_hit_total = current_user_score.aggregate(Sum('number_of_greens_hit'))
     context["greens_hit_total"] = greens_hit_total['number_of_greens_hit__sum']
 
+    # fairways hit 
+
     fairways_hit = current_user_score.aggregate(Avg('number_of_fairways_hit'))
     fairways_hit['number_of_fairways_hit__avg'] = round(fairways_hit['number_of_fairways_hit__avg'],2)
     context["fairways_hit_ave"] = fairways_hit['number_of_fairways_hit__avg']
@@ -107,6 +115,10 @@ class ScoreChartBreak(LoginRequiredMixin, TemplateView):
     fairways_hit_total = current_user_score.aggregate(Sum('number_of_fairways_hit'))
     context["fairways_hit_total"] = fairways_hit_total['number_of_fairways_hit__sum']
 
+
+# Last 5
+
+# Birdies last 5
 
     last_five = current_user_score.filter().order_by('-date')[:5]
 
@@ -122,7 +134,11 @@ class ScoreChartBreak(LoginRequiredMixin, TemplateView):
 
 
 
+# pars last 5
+
+
     last_five_par_avg = last_five.aggregate(Avg('number_of_pars'))
+    last_five_par_avg['number_of_pars__avg'] = round(par_ave['number_of_pars__avg'],2)
     context["last_five_par_avg"] = (last_five_par_avg['number_of_pars__avg'])
 
     last_five_par_max = last_five.aggregate(Max('number_of_pars'))
@@ -133,7 +149,14 @@ class ScoreChartBreak(LoginRequiredMixin, TemplateView):
 
 
 
+    # putt_ave = current_user_score.aggregate(Avg('number_of_putts'))
+    # putt_ave['number_of_putts__avg'] = round(putt_ave['number_of_putts__avg'],2)
+    # context["putt_ave"] = putt_ave['number_of_putts__avg']
+
+# putts last 5
+
     last_five_putt_avg = last_five.aggregate(Avg('number_of_putts'))
+    # last_five_putt_avg['number_of_putts__avg'] = round(putt_ave['last_five_putts__avg'],0)
     context["last_five_putt_avg"] = (last_five_putt_avg['number_of_putts__avg'])
 
     last_five_putt_min = last_five.aggregate(Min('number_of_putts'))
@@ -143,8 +166,11 @@ class ScoreChartBreak(LoginRequiredMixin, TemplateView):
     context["last_five_putt_sum"] = (last_five_putt_sum['number_of_putts__sum'])
 
 
+# fairways hit last 5
+
 
     last_five_fairway_avg = last_five.aggregate(Avg('number_of_fairways_hit'))
+    last_five_fairway_avg['number_of_fairways_hit__avg'] = round(fairways_hit['number_of_fairways_hit__avg'],2)
     context["last_five_fairway_avg"] = (last_five_fairway_avg['number_of_fairways_hit__avg'])
 
     last_five_fairway_max = last_five.aggregate(Max('number_of_fairways_hit'))
@@ -153,7 +179,15 @@ class ScoreChartBreak(LoginRequiredMixin, TemplateView):
     last_five_fairway_sum = last_five.aggregate(Sum('number_of_fairways_hit'))
     context["last_five_fairway_sum"] = (last_five_fairway_sum['number_of_fairways_hit__sum'])  
 
+
+    # greens hit 
+
+    #     greens_hit = current_user_score.aggregate(Avg('number_of_greens_hit'))
+    # greens_hit['number_of_greens_hit__avg'] = round(greens_hit['number_of_greens_hit__avg'],2)
+    # context["greens_hit_ave"] = greens_hit['number_of_greens_hit__avg']
+
     last_five_green_avg = last_five.aggregate(Avg('number_of_greens_hit'))
+    last_five_green_avg['number_of_greens_hit_avg'] = round(greens_hit['number_of_greens_hit__avg'],2)
     context["last_five_green_avg"] = (last_five_green_avg['number_of_greens_hit__avg'])
 
     last_five_green_max = last_five.aggregate(Max('number_of_greens_hit'))
