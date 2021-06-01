@@ -35,6 +35,7 @@ class ScoreChart(LoginRequiredMixin, TemplateView):
     last_five = current_user_score.filter().order_by('-date')[:5]
 
     avg_last_five = last_five.aggregate(Avg('total_score'))
+    avg_last_five ['total_score__avg'] = round(score_ave['total_score__avg'],2)
     context["avg_last_five"] = avg_last_five['total_score__avg']
 
     last_five_lowest = last_five.aggregate(Min('total_score'))
