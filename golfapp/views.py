@@ -156,7 +156,7 @@ class ScoreChartBreak(LoginRequiredMixin, TemplateView):
 # putts last 5
 
     last_five_putt_avg = last_five.aggregate(Avg('number_of_putts'))
-    # last_five_putt_avg['number_of_putts__avg'] = round(putt_ave['last_five_putts__avg'],0)
+    last_five_putt_avg['number_of_putts__avg'] = round(putt_ave['number_of_putts__avg'],2)
     context["last_five_putt_avg"] = (last_five_putt_avg['number_of_putts__avg'])
 
     last_five_putt_min = last_five.aggregate(Min('number_of_putts'))
@@ -182,12 +182,9 @@ class ScoreChartBreak(LoginRequiredMixin, TemplateView):
 
     # greens hit 
 
-    #     greens_hit = current_user_score.aggregate(Avg('number_of_greens_hit'))
-    # greens_hit['number_of_greens_hit__avg'] = round(greens_hit['number_of_greens_hit__avg'],2)
-    # context["greens_hit_ave"] = greens_hit['number_of_greens_hit__avg']
 
     last_five_green_avg = last_five.aggregate(Avg('number_of_greens_hit'))
-    last_five_green_avg['number_of_greens_hit_avg'] = round(greens_hit['number_of_greens_hit__avg'],2)
+    last_five_green_avg['number_of_greens_hit__avg'] = round(greens_hit['number_of_greens_hit__avg'],2)
     context["last_five_green_avg"] = (last_five_green_avg['number_of_greens_hit__avg'])
 
     last_five_green_max = last_five.aggregate(Max('number_of_greens_hit'))
