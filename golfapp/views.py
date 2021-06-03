@@ -127,7 +127,10 @@ class ScoreChartBreak(LoginRequiredMixin, TemplateView):
 
     last_five = current_user_score.filter().order_by('-date')[:5]
 
+
+
     last_five_birdie_avg = last_five.aggregate(Avg('number_of_birdies'))
+    last_five_birdie_avg['number_of_birdies__avg'] = round(last_five_birdie_avg['number_of_birdies__avg'],2)
     context["last_five_birdie_avg"] = (last_five_birdie_avg['number_of_birdies__avg'])
 
     birdie_five_most = last_five.aggregate(Max('number_of_birdies'))
@@ -143,7 +146,7 @@ class ScoreChartBreak(LoginRequiredMixin, TemplateView):
 
 
     last_five_par_avg = last_five.aggregate(Avg('number_of_pars'))
-    last_five_par_avg['number_of_pars__avg'] = round(par_ave['number_of_pars__avg'],2)
+    last_five_par_avg['number_of_pars__avg'] = round(last_five_par_avg['number_of_pars__avg'],2)
     context["last_five_par_avg"] = (last_five_par_avg['number_of_pars__avg'])
 
     last_five_par_max = last_five.aggregate(Max('number_of_pars'))
@@ -161,7 +164,7 @@ class ScoreChartBreak(LoginRequiredMixin, TemplateView):
 # putts last 5
 
     last_five_putt_avg = last_five.aggregate(Avg('number_of_putts'))
-    last_five_putt_avg['number_of_putts__avg'] = round(putt_ave['number_of_putts__avg'],2)
+    last_five_putt_avg['number_of_putts__avg'] = round(last_five_putt_avg['number_of_putts__avg'],2)
     context["last_five_putt_avg"] = (last_five_putt_avg['number_of_putts__avg'])
 
     last_five_putt_min = last_five.aggregate(Min('number_of_putts'))
@@ -175,7 +178,7 @@ class ScoreChartBreak(LoginRequiredMixin, TemplateView):
 
 
     last_five_fairway_avg = last_five.aggregate(Avg('number_of_fairways_hit'))
-    last_five_fairway_avg['number_of_fairways_hit__avg'] = round(fairways_hit['number_of_fairways_hit__avg'],2)
+    last_five_fairway_avg['number_of_fairways_hit__avg'] = round(last_five_fairway_avg['number_of_fairways_hit__avg'],2)
     context["last_five_fairway_avg"] = (last_five_fairway_avg['number_of_fairways_hit__avg'])
 
     last_five_fairway_max = last_five.aggregate(Max('number_of_fairways_hit'))
@@ -189,7 +192,7 @@ class ScoreChartBreak(LoginRequiredMixin, TemplateView):
 
 
     last_five_green_avg = last_five.aggregate(Avg('number_of_greens_hit'))
-    last_five_green_avg['number_of_greens_hit__avg'] = round(greens_hit['number_of_greens_hit__avg'],2)
+    last_five_green_avg['number_of_greens_hit__avg'] = round(last_five_green_avg['number_of_greens_hit__avg'],2)
     context["last_five_green_avg"] = (last_five_green_avg['number_of_greens_hit__avg'])
 
     last_five_green_max = last_five.aggregate(Max('number_of_greens_hit'))
