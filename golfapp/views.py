@@ -32,11 +32,15 @@ class ScoreChart(LoginRequiredMixin, TemplateView):
     total_strokes = current_user_score.aggregate(Sum('total_score'))
     context["total_strokes"] = total_strokes['total_score__sum']
 
+    # last 5 ave
+
     last_five = current_user_score.filter().order_by('-date')[:5]
+    
 
     avg_last_five = last_five.aggregate(Avg('total_score'))
-    avg_last_five ['total_score__avg'] = round(score_ave['total_score__avg'],2)
+    avg_last_five ['total_score__avg'] = round(avg_last_five['total_score__avg'],2)
     context["avg_last_five"] = avg_last_five['total_score__avg']
+
 
     last_five_lowest = last_five.aggregate(Min('total_score'))
     context["last_five_lowest"] = last_five_lowest['total_score__min']
@@ -44,6 +48,7 @@ class ScoreChart(LoginRequiredMixin, TemplateView):
     last_five_strokes = last_five.aggregate(Sum('total_score'))
     context["last_five_strokes"] = last_five_strokes['total_score__sum']
     return context
+
 
 class ScoreChartBreak(LoginRequiredMixin, TemplateView):
   template_name = 'analytics/break.html'
